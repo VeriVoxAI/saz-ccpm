@@ -424,17 +424,14 @@ Teams using this system report:
 
    ```bash
    cd path/to/your/project/
-   git clone https://github.com/VeriVoxAI/saz-ccpm.git temp-saz-ccpm
-   cp -r temp-saz-ccpm/.claude .
-   rm -rf temp-saz-ccpm
+   curl -sSL https://raw.githubusercontent.com/VeriVoxAI/saz-ccpm/main/install/ccpm.sh | bash
+   # or: wget -qO- https://raw.githubusercontent.com/VeriVoxAI/saz-ccpm/main/install/ccpm.sh | bash
    ```
 
    #### Windows (PowerShell)
-   ```powershell
+   ```bash
    cd path/to/your/project/
-   git clone https://github.com/VeriVoxAI/saz-ccpm.git temp-saz-ccpm
-   Copy-Item -Recurse temp-saz-ccpm/.claude .
-   Remove-Item -Recurse -Force temp-saz-ccpm
+   iwr -useb https://raw.githubusercontent.com/VeriVoxAI/saz-ccpm/main/install/ccpm.bat | iex
    ```
    > ⚠️ **IMPORTANT**: If you already have a `.claude` directory, clone this repository to a different directory and copy the contents of the cloned `.claude` directory to your project's `.claude` directory.
 
