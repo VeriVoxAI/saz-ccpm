@@ -1,4 +1,4 @@
-# Claude Code PM
+# SAZ-Enhanced CCPM (Claude Code PM)
 
 [![Automaze](https://img.shields.io/badge/By-automaze.io-4b3baf)](https://automaze.io)
 &nbsp;
@@ -11,9 +11,9 @@
 &nbsp;
 [![Star this repo](https://img.shields.io/badge/★-Star%20this%20repo-e7b10b)](https://github.com/automazeio/ccpm)
 
-### Claude Code workflow to ship ~~faster~~ _better_ using spec-driven development, GitHub issues, Git worktrees, and mutiple AI agents running in parallel.
+### Intelligent project management that combines natural conversation with production-grade workflows. Think naturally, ship professionally.
 
-Stop losing context. Stop blocking on tasks. Stop shipping bugs. This battle-tested system turns PRDs into epics, epics into GitHub issues, and issues into production code – with full traceability at every step.
+**90%+ natural language** meets **production discipline**. From "I want to build something" to deployed code, this enhanced system combines SAZ's conversational intelligence with CCPM's battle-tested workflows. Beginners productive in <10 minutes, experts keep full power.
 
 ![Claude Code PM](screenshot.webp)
 
@@ -36,6 +36,24 @@ Stop losing context. Stop blocking on tasks. Stop shipping bugs. This battle-tes
 - [Technical Notes](#technical-notes)
 - [Support This Project](#support-this-project)
 
+## What's New in SAZ-Enhanced CCPM?
+
+**Natural Conversation First**
+- Just say what you want to build - no commands needed
+- Intelligent intent detection adapts to your needs
+- Emergency mode for production issues
+- Educational mode for learning
+
+**Brainstorming Before Planning**
+- Vague ideas? Start with brainstorming-specialist
+- Generates 3-5 concrete concepts with feasibility analysis
+- Then seamlessly transitions to PRDs when ready
+
+**Progressive Complexity**
+- Simple projects stay simple
+- Complex projects get full architecture
+- System scales with your needs automatically
+
 ## Background
 
 Every team struggles with the same problems:
@@ -43,8 +61,9 @@ Every team struggles with the same problems:
 - **Parallel work creates conflicts** when multiple developers touch the same code
 - **Requirements drift** as verbal decisions override written specs
 - **Progress becomes invisible** until the very end
+- **Complex commands** block beginners from starting
 
-This system solves all of that.
+This enhanced system solves all of that.
 
 ## The Workflow
 
@@ -58,6 +77,16 @@ graph LR
 
 ### See It In Action (60 seconds)
 
+**Natural Language (New)**
+```
+You: "I want to build a SaaS dashboard"
+Claude: 💡 I'll explore SaaS concepts with you first...
+[Generates 3-5 concepts with feasibility]
+[You pick one]
+[Automatically creates PRD and implementation plan]
+```
+
+**Or Use Commands (Original)**
 ```bash
 # Create a comprehensive PRD through guided brainstorming
 /pm:prd-new memory-system
@@ -72,13 +101,13 @@ graph LR
 
 ## What Makes This Different?
 
-| Traditional Development | Claude Code PM System |
-|------------------------|----------------------|
-| Context lost between sessions | **Persistent context** across all work |
-| Serial task execution | **Parallel agents** on independent tasks |
-| "Vibe coding" from memory | **Spec-driven** with full traceability |
-| Progress hidden in branches | **Transparent audit trail** in GitHub |
-| Manual task coordination | **Intelligent prioritization** with `/pm:next` |
+| Traditional Development | Original CCPM | SAZ-Enhanced CCPM |
+|------------------------|---------------|-------------------|
+| Context lost between sessions | Persistent context | **Intelligent context** that adapts |
+| Serial task execution | Parallel agents | **Smart agent selection** based on need |
+| "Vibe coding" from memory | Spec-driven | **Brainstorm-first** then spec |
+| Progress hidden in branches | GitHub audit trail | **Natural progress updates** |
+| Manual task coordination | Command-based | **90% natural language** |
 
 ## Why GitHub Issues?
 
@@ -112,19 +141,26 @@ By using GitHub Issues as our database, we unlock something powerful:
 
 This isn't just a project management system – it's a **collaboration protocol** that lets humans and AI agents work together at scale, using infrastructure your team already trusts.
 
-## Core Principle: No Vibe Coding
+## Core Principles
 
-> **Every line of code must trace back to a specification.**
+> **Make professional project management accessible to everyone.**
 
-We follow a strict 5-phase discipline:
+### The SAZ-Enhanced Flow
 
-1. **🧠 Brainstorm** - Think deeper than comfortable
-2. **📝 Document** - Write specs that leave nothing to interpretation
-3. **📐 Plan** - Architect with explicit technical decisions
-4. **⚡ Execute** - Build exactly what was specified
-5. **📊 Track** - Maintain transparent progress at every step
+1. **💡 Explore** - Start with ideas, not requirements (NEW)
+2. **🧠 Brainstorm** - Generate multiple concepts before committing
+3. **📝 Document** - Create PRDs from chosen concepts
+4. **📐 Plan** - Architect with explicit technical decisions
+5. **⚡ Execute** - Build with appropriate complexity
+6. **📊 Track** - Natural language progress updates
 
-No shortcuts. No assumptions. No regrets.
+### Intelligent Mode Switching (NEW)
+
+- **🚨 Emergency Mode**: Production down? Skip everything, fix it NOW
+- **📚 Educational Mode**: Learning? Get explanations, not just code
+- **💡 Brainstorming Mode**: Vague idea? Explore before planning
+- **🏗️ Build Mode**: Clear requirements? Full production workflow
+- **🔧 Improve Mode**: Existing project? Smart analysis and fixes
 
 ## System Architecture
 
@@ -388,14 +424,17 @@ Teams using this system report:
 
    ```bash
    cd path/to/your/project/
-   curl -sSL https://raw.githubusercontent.com/automazeio/ccpm/main/ccpm.sh | bash
-   # or: wget -qO- https://raw.githubusercontent.com/automazeio/ccpm/main/ccpm.sh | bash
+   git clone https://github.com/VeriVoxAI/saz-ccpm.git temp-saz-ccpm
+   cp -r temp-saz-ccpm/.claude .
+   rm -rf temp-saz-ccpm
    ```
 
    #### Windows (PowerShell)
-   ```bash
+   ```powershell
    cd path/to/your/project/
-   iwr -useb https://raw.githubusercontent.com/automazeio/ccpm/main/ccpm.bat | iex
+   git clone https://github.com/VeriVoxAI/saz-ccpm.git temp-saz-ccpm
+   Copy-Item -Recurse temp-saz-ccpm/.claude .
+   Remove-Item -Recurse -Force temp-saz-ccpm
    ```
    > ⚠️ **IMPORTANT**: If you already have a `.claude` directory, clone this repository to a different directory and copy the contents of the cloned `.claude` directory to your project's `.claude` directory.
 
@@ -428,11 +467,18 @@ Teams using this system report:
 
 ### Start Your First Feature
 
+**Natural Language (Recommended)**
+```
+You: "I want to build [your idea]"
+Claude: [Automatically detects intent and guides you]
+```
+
+**Or Traditional Commands**
 ```bash
 /pm:prd-new your-feature-name
 ```
 
-Watch as structured planning transforms into shipped code.
+Watch as your ideas transform into shipped code.
 
 ## Local vs Remote
 
@@ -469,12 +515,16 @@ Watch as structured planning transforms into shipped code.
 
 ## Support This Project
 
-Claude Code PM was developed at [Automaze](https://automaze.io) **for developers who ship, by developers who ship**.
+**SAZ-Enhanced CCPM** combines:
+- **CCPM** by [Automaze](https://automaze.io) - Production-grade project management
+- **SAZ concepts** from SuperAgent Zero - Natural conversation and adaptive intelligence
 
-If Claude Code PM helps your team ship better software:
+Forked and enhanced by [VeriVox AI](https://github.com/VeriVoxAI).
 
-- ⭐ **[Star this repository](https://github.com/automazeio/ccpm)** to show your support
-- 🐦 **[Follow @aroussi on X](https://x.com/aroussi)** for updates and tips
+If this helps your team:
+- ⭐ **[Star this repository](https://github.com/VeriVoxAI/saz-ccpm)** to show your support
+- 🐦 **[Follow @aroussi on X](https://x.com/aroussi)** for CCPM updates
+- 🔗 **[Check out the original CCPM](https://github.com/automazeio/ccpm)** for the base system
 
 
 ---
@@ -485,6 +535,8 @@ If Claude Code PM helps your team ship better software:
 
 ---
 
-## Star History
+## Credits
 
-![Star History Chart](https://api.star-history.com/svg?repos=automazeio/ccpm)
+- Original CCPM system by [Automaze](https://github.com/automazeio/ccpm)
+- SAZ concepts inspired by [SuperAgent Zero](https://github.com/VeriVoxAI/SuperAgent-Zero)
+- Enhanced version maintained at [github.com/VeriVoxAI/saz-ccpm](https://github.com/VeriVoxAI/saz-ccpm)
