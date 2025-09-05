@@ -1,85 +1,285 @@
 # Complexity Scaling Rules
 
-## Project Complexity Assessment
+Adaptive command sequences and process overhead based on project complexity.
+
+## 🎯 Complexity Detection
+
+### Automatic Assessment
+```bash
+# File count-based detection
+file_count=$(find . -type f \( -name "*.js" -o -name "*.py" -o -name "*.ts" -o -name "*.go" \) | wc -l)
+
+if [ $file_count -lt 5 ]; then
+  COMPLEXITY="simple"
+elif [ $file_count -lt 20 ]; then
+  COMPLEXITY="medium"
+elif [ $file_count -lt 50 ]; then
+  COMPLEXITY="complex"
+else
+  COMPLEXITY="enterprise"
+fi
+```
+
+### Manual Indicators
+
+| Complexity | Files | Timeline | Scope | Team Size |
+|------------|-------|----------|-------|-----------|
+| **Simple** | < 5 | 1-2 days | Single feature/fix | Solo |
+| **Medium** | 5-20 | 1-2 weeks | Multiple features | 2-5 |
+| **Complex** | 20-50 | 2-8 weeks | System changes | 5-10 |
+| **Enterprise** | 50+ | 8+ weeks | Multi-system | 10+ |
+
+## 📋 Command Sequences by Complexity
 
 ### Simple Projects
-**Indicators:**
-- Less than 3 components
-- Solo developer
-- Under 2 weeks estimated time
-- No external integrations
-- Basic CRUD operations
+**Philosophy:** Just do it - skip ceremony
 
-**Workflow:**
-- Skip epic decomposition
-- Minimal planning ceremony
-- Direct implementation focus
-- Quick iteration cycles
-- Basic testing only
+```bash
+# Direct execution path
+/pm:epic-oneshot simple-task    # Skip PRD entirely
+/pm:issue-start 123             # Begin work immediately
+/pm:issue-close 123             # Mark complete
+
+# OR even simpler (no PM at all):
+# Just make the changes directly
+# Document in commit message
+```
+
+**Characteristics:**
+- ❌ No PRDs needed
+- ❌ No epic decomposition
+- ✅ Optional GitHub sync
+- ✅ Single branch work
+- ✅ Direct implementation
 
 ### Medium Projects  
-**Indicators:**
-- 3-5 components
-- Small team (2-5 people)
-- 2-8 weeks estimated time
-- Some external integrations
-- Multiple user roles
+**Philosophy:** Balance process with productivity
 
-**Workflow:**
-- Standard PRD creation
-- Basic task decomposition
-- Balanced planning/execution
-- Regular progress updates
-- Comprehensive testing
+```bash
+# Standard workflow
+/pm:prd-new feature             # Create requirements
+/pm:prd-parse feature           # Convert to epic
+/pm:epic-decompose feature      # Break into 3-5 tasks
+/pm:epic-sync feature           # Push to GitHub
+/pm:epic-start feature          # Begin development
+/pm:standup                     # Daily progress check
+/pm:epic-close feature          # Complete
+```
+
+**Characteristics:**
+- ✅ Light PRD (key points only)
+- ✅ Basic decomposition
+- ✅ GitHub recommended
+- ✅ Standard branch
+- ✅ Progress tracking
 
 ### Complex Projects
-**Indicators:**
-- 5+ components
-- Large team (5+ people)
-- 8+ weeks estimated time
-- Multiple system integrations
-- Enterprise requirements
+**Philosophy:** Full rigor for coordination
 
-**Workflow:**
-- Full PRD with detailed specs
-- Complete epic decomposition
-- Rigorous planning phase
-- Parallel execution tracks
-- Quality gates at each stage
-- Full documentation
+```bash
+# Comprehensive workflow
+/pm:prd-new-enhanced complex    # Detailed requirements
+/pm:prd-parse complex           # Comprehensive epic
+/pm:epic-decompose complex      # Break into 10+ tasks
+/pm:issue-analyze complex       # Identify parallel streams
+/pm:epic-sync complex           # Full GitHub integration
+/pm:epic-start-worktree complex # Isolated parallel work
+/pm:blocked                     # Monitor dependencies
+/pm:standup                     # Daily sync
+/pm:epic-refresh complex        # Update progress
+/pm:epic-merge complex          # Complex integration
+```
 
-## Adaptive Responses
+**Characteristics:**
+- ✅ Full PRD with analysis
+- ✅ Detailed decomposition
+- ✅ GitHub required
+- ✅ Worktree isolation
+- ✅ Parallel execution
+- ✅ Daily standups
 
-### For Simple Projects
-**Focus on:** Speed and simplicity
-**Hide:** Complex PM terminology, extensive planning
-**Show:** Direct next steps, quick wins
+### Enterprise Projects
+**Philosophy:** Maximum coordination and visibility
 
-### For Medium Projects
-**Focus on:** Balance and sustainability
-**Hide:** Enterprise features, complex workflows
-**Show:** Core PM concepts, team coordination
+```bash
+# Enterprise workflow
+/pm:prd-new-enhanced system     # Multi-stakeholder requirements
+/pm:prd-parse system            # System-wide epic
+/pm:epic-decompose system       # 20+ coordinated tasks
+/pm:issue-analyze system        # Complex dependency mapping
+/pm:epic-sync system            # GitHub with labels/milestones
+/pm:epic-start-worktree system  # Multiple parallel streams
+/pm:blocked                     # Dependency tracking
+/pm:standup                     # Multiple daily syncs
+/pm:epic-status system          # Executive dashboards
+/pm:epic-refresh system         # Continuous updates
+```
 
-### For Complex Projects
-**Focus on:** Rigor and scalability
-**Hide:** Nothing - full transparency
-**Show:** All features, advanced workflows, metrics
+**Characteristics:**
+- ✅ Multiple PRDs per system
+- ✅ Sub-epic hierarchies
+- ✅ Full GitHub integration
+- ✅ Multiple worktrees
+- ✅ Extensive documentation
+- ✅ Quality gates
 
-## User Experience Scaling
+## 🔄 Process Overhead Scaling
 
-### New Users
-- Start with simple workflow regardless of project size
-- Gradually introduce complexity
-- Provide educational context
-- Offer to explain decisions
+| Aspect | Simple | Medium | Complex | Enterprise |
+|--------|--------|--------|---------|------------|
+| **PRD** | Skip | 1 page | 3-5 pages | 10+ pages |
+| **Tasks** | 0-1 | 3-5 | 10-20 | 20+ |
+| **GitHub** | Optional | Recommended | Required | Required+ |
+| **Branches** | Main | Feature | Worktree | Multiple |
+| **Updates** | End only | Weekly | Daily | Continuous |
+| **Testing** | Basic | Standard | Comprehensive | Full QA |
+| **Docs** | Comments | README | Full docs | Architecture |
 
-### Experienced Users
-- Assess project properly from start
-- Use appropriate workflow immediately
+## 🚀 Execution Strategy
+
+### Serial vs Parallel
+
+**Simple/Medium:** Serial execution
+```bash
+/pm:issue-start 123  # One task at a time
+/pm:issue-close 123
+/pm:issue-start 124
+```
+
+**Complex:** Parallel with coordination
+```bash
+/pm:issue-analyze 123         # Find parallel opportunities
+/pm:epic-start-worktree epic  # Multiple streams
+```
+
+**Enterprise:** Full parallel orchestration
+```bash
+/pm:epic-start-worktree system --parallel-max=10
+# Multiple teams, multiple streams
+```
+
+## 🎭 Mode Overrides
+
+Certain modes override complexity-based decisions:
+
+### Emergency Mode
+```bash
+# Complexity IGNORED - fastest path only
+# Skip all ceremony regardless of project size
+git status && git log -5  # Quick context
+# Direct fix
+/pm:issue-start emergency-fix  # Document after
+```
+
+### Educational Mode
+```bash
+# Start simple regardless of actual complexity
+# Even complex projects begin with basic commands
+/pm:prd-new simple-tutorial   # Simple even if complex
+/pm:epic-show simple-tutorial  # Explain each step
+```
+
+### Brainstorming Mode
+```bash
+# Complexity unknown until concepts solidify
+Task(brainstorming-specialist)  # Generate concepts first
+# THEN assess complexity based on chosen concept
+# THEN apply appropriate workflow
+```
+
+### Maintenance Mode
+```bash
+# Treat as simple regardless of codebase size
+/pm:issue-start bug-fix  # Quick fix workflow
+/pm:issue-close bug-fix  # Minimal overhead
+```
+
+## 🗣️ Natural Language Mapping
+
+### Keywords to Complexity
+```
+"quick fix", "typo", "small change" → Simple
+"new feature", "add capability" → Medium
+"refactor", "redesign", "architecture" → Complex
+"platform", "system", "infrastructure" → Enterprise
+
+UNCERTAIN:
+"build something", "not sure", "maybe" → Brainstorm first
+"explore", "could we", "what if" → Concepts before complexity
+```
+
+### User Experience Adaptation
+
+**New Users:**
+- Start with simple commands regardless of project
+- Gradually introduce based on comfort
+- Show success before complexity
+
+**Experienced Users:**
+- Jump to appropriate complexity immediately
+- Offer shortcuts and batch operations
 - Skip explanations unless requested
-- Provide expert shortcuts
 
-### Team Context
-- Solo: Minimize process overhead
-- Small team: Focus on coordination
-- Large team: Full process discipline
+**Teams:**
+- Scale to highest common denominator
+- Ensure GitHub integration for visibility
+- Emphasize coordination points
+
+## 📊 Decision Flow
+
+```
+User Input
+    ↓
+Emergency? → YES → Skip complexity assessment
+    ↓ NO
+Educational? → YES → Force simple workflow
+    ↓ NO
+Vague idea? → YES → Brainstorm first
+    ↓ NO
+Assess scope → Determine complexity
+    ↓
+Apply workflow:
+├── Simple → epic-oneshot or direct
+├── Medium → Standard PRD flow
+├── Complex → Enhanced with parallel
+└── Enterprise → Full orchestration
+```
+
+## 🎯 GitHub Strategy by Complexity
+
+| Level | Local Work | GitHub Issues | Sub-Issues | Labels | Milestones |
+|-------|------------|---------------|------------|--------|------------|
+| Simple | ✅ Primary | Optional | No | No | No |
+| Medium | ✅ Yes | ✅ Recommended | Optional | Basic | No |
+| Complex | Some | ✅ Required | ✅ Yes | ✅ Yes | Optional |
+| Enterprise | Minimal | ✅ Required | ✅ Required | ✅ Required | ✅ Required |
+
+## 📈 Progress Tracking
+
+**Simple:** Git commits only
+**Medium:** GitHub issue comments
+**Complex:** Daily standups + issue updates
+**Enterprise:** Dashboards + metrics + reports
+
+## ⚡ Performance Tips
+
+1. **Under-complexity is better than over-complexity**
+   - Start simple, add process only when needed
+   - Can always upgrade workflow mid-project
+
+2. **Mode overrides complexity**
+   - Emergency → Skip everything
+   - Educational → Start simple
+   - Brainstorming → Assess after
+
+3. **Team size affects minimum complexity**
+   - Solo can stay simple longer
+   - Teams need GitHub earlier
+   - Large teams require full process
+
+4. **Iterate on complexity assessment**
+   - Reassess as project grows
+   - Adjust workflow accordingly
+   - Don't be afraid to simplify
+
+Remember: The goal is appropriate process, not maximum process. Scale intelligently.

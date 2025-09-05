@@ -19,8 +19,12 @@ ALWAYS check in this exact sequence - first match wins.
 ```bash
 # If message contains emergency keywords
 if [[ "$input" =~ (urgent|critical|down|broken|emergency|production|failing|ASAP) ]]; then
-  # Skip ALL workflows → Direct help
-  echo "🚨 Emergency detected"
+  echo "🚨 Emergency detected - quick context scan"
+  # Quick 15-second context scan
+  ls package.json requirements.txt Cargo.toml go.mod 2>/dev/null | head -1
+  git status --short 2>/dev/null | head -5
+  git log -3 --oneline 2>/dev/null
+  test -d .claude/context && echo "Context available"
 fi
 ```
 
@@ -30,12 +34,35 @@ fi
 - ASAP, immediately, losing money, customers affected
 
 #### Action
-- Bypass ALL project management
-- No PRDs, no epics, no tasks
-- Direct debugging assistance
-- Document after resolution
+- Quick context scan (< 15 seconds)
+- Detect project type and recent changes
+- Use file-analyzer for logs/configs if needed
+- Use code-analyzer for debugging if needed
+- Direct fix with general-purpose
+- Document after resolution with /pm:issue-start
 
-### 2. Educational Detection
+### 2. Existing Project Detection
+
+#### Quick Check
+```bash
+# Check if existing project files present
+if [[ -f "package.json" || -f "requirements.txt" || -f "Cargo.toml" || -f "go.mod" || -d ".git" ]]; then
+  echo "📂 Existing project detected - suggest analysis first"
+fi
+```
+
+#### Project Indicators
+- **Files**: package.json, requirements.txt, Cargo.toml, go.mod, pom.xml
+- **Directories**: .git/, src/, app/, lib/, components/
+- **User phrases**: "my project", "existing app", "current codebase", "what I have"
+
+#### Action
+- Suggest: "I notice you have an existing project. Should I analyze it first with /context:create?"
+- Understand current architecture before suggesting new features
+- Build on existing patterns and conventions
+- Avoid redundant or conflicting recommendations
+
+### 3. Educational Detection
 
 #### Quick Check
 ```bash

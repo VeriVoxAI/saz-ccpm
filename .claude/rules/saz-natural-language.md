@@ -15,11 +15,26 @@ Translates natural conversation to CCPM commands while maintaining simplicity.
 
 Keep it simple - common phrases to commands:
 
+#### Emergency Response (Highest Priority!)
+- "production is down" → Quick context scan → file-analyzer → fix
+- "urgent bug" → Check recent commits → code-analyzer → debug
+- "system crashed" → Project detect → logs analysis → immediate fix
+- "payment failing" → Context scan → trace error → patch
+- "customers affected" → Skip formalities → diagnose → resolve
+
+#### Project Analysis (Priority!)
+- "analyze my project" → /context:create
+- "understand my code" → /context:create
+- "what do I have" → /context:create
+- "scan my codebase" → /context:create
+- "review my app" → /context:create
+
 #### Project Creation
-- "I want to build X" → /pm:prd-new X
-- "Let's create Y" → /pm:prd-new Y  
+- "I want to build X" → Check existing project → /pm:prd-new X
+- "Let's create Y" → Check existing project → /pm:prd-new Y  
 - "Start new project" → /pm:prd-new [ask-name]
 - "Build something" → brainstorm first
+- "add feature to X" → /context:create → then PRD
 
 #### Status Queries
 - "what's the status" → /pm:status

@@ -10,6 +10,12 @@ Specialized agents that do heavy work and return concise summaries to preserve c
 
 ## Available Agents
 
+### 💡 `brainstorming-specialist`
+- **Purpose**: Transform vague ideas into concrete, actionable concepts with feasibility analysis
+- **Pattern**: Gather context → Generate 3-5 concepts → Analyze feasibility → Return structured options
+- **Usage**: When user has unclear requirements or needs exploration before committing to a direction
+- **Returns**: Structured concept documents with pros/cons, tech stack, and implementation estimates
+
 ### 🔍 `code-analyzer`
 - **Purpose**: Hunt bugs across multiple files without polluting main context
 - **Pattern**: Search many files → Analyze code → Return bug report
@@ -56,6 +62,12 @@ Agent reads 10 files → Main thread gets 1 summary → Context preserved
 ## Example Usage
 
 ```bash
+# Brainstorming concepts
+Task: "I want to build something for small businesses"
+Agent: brainstorming-specialist
+Returns: "Generated 5 concepts: [structured list with summaries]"
+Main thread never sees: The research and ideation process
+
 # Analyzing code for bugs
 Task: "Search for memory leaks in the codebase"
 Agent: code-analyzer
