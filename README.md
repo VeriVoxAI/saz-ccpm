@@ -297,13 +297,13 @@ SAZ-CCPM scales from solo developers to enterprise teams:
 
 ## 🧠 Advanced Features
 
-### Intelligent Agent Selection
-SAZ-CCPM automatically chooses the right specialist:
-- `nextjs-app-builder` for React/Next.js projects
-- `database-architect` for schema design
-- `api-integration-specialist` for external services
-- `performance-optimizer` for speed improvements
-- Creates custom agents when needed
+### Intelligent Context Management
+SAZ-CCPM uses specialized agents for context optimization:
+- `file-analyzer` for logs, configs, and large files
+- `code-analyzer` for debugging and code analysis
+- `brainstorming-specialist` for concept generation
+- `general-purpose` for direct implementation
+- Agents preserve main context by handling heavy work
 
 ### Progressive Complexity
 - **Simple tasks** (< 5 files): Direct execution, no ceremony
