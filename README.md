@@ -152,21 +152,31 @@ Why GitHub Issues?
 ```
 your-project/
 ├── CLAUDE.md            # Project instructions (auto-created)
-├── .claude/
-│   ├── agents/          # Specialized AI agents
-│   │   ├── brainstorming-specialist.md
-│   │   ├── project-planner.md
-│   │   └── [20+ more specialists]
-│   ├── commands/        # Available commands
-│   ├── context/         # Project understanding
-│   ├── epics/           # Active development
-│   ├── prds/            # Product requirements
-│   └── rules/           # Workflow automation
-└── .saz/
-    └── memory/          # Persistent project memory
-        ├── project.md   # Current state
-        ├── insights.md  # Technical discoveries
-        └── workflows.md # Proven patterns
+└── .claude/
+    ├── agents/          # Specialized AI agents
+    │   ├── brainstorming-specialist.md
+    │   ├── file-analyzer.md
+    │   ├── code-analyzer.md
+    │   └── [more specialists as needed]
+    ├── commands/        # Available commands
+    │   ├── pm/          # Project management commands
+    │   └── context/     # Context management
+    ├── context/         # Project understanding
+    │   ├── project-overview.md
+    │   ├── tech-context.md
+    │   └── [auto-generated context files]
+    ├── epics/           # Active development (in .gitignore)
+    │   └── [epic-name]/ # Epic workspace
+    │       ├── epic.md  # Technical plan
+    │       └── [#].md   # Task files
+    ├── prds/            # Product requirements
+    │   └── [feature].md # PRD documents
+    ├── rules/           # Workflow automation
+    │   ├── workflow-modes.md
+    │   ├── complexity-scaling.md
+    │   └── saz-*.md     # Natural language rules
+    └── scripts/         # Automation scripts
+        └── pm/          # PM shell scripts
 ```
 
 ## 📋 Essential Commands
