@@ -121,10 +121,13 @@ fi
 - let's build, start building, develop
 
 #### Action
-1. Assess requirement clarity
-2. If vague → brainstorm first
-3. If clear → /pm:prd-new
-4. Set up workflow
+1. Assess requirement clarity:
+   - Vague ("build something") → brainstorming-specialist → concepts
+   - Clear ("build OAuth") → /pm:prd-new directly
+2. After brainstorming (if done):
+   - User selects concept → /pm:prd-new feature --from-concept path
+3. Then continue workflow:
+   - /pm:prd-parse → /pm:epic-decompose → /pm:epic-sync
 
 ### 5. Status Detection
 

@@ -153,10 +153,10 @@ Examples:
 What's on your mind?
 
 ### Response Examples
-**Vague:** "I want to build something" → Ask 2-3 clarifying questions → Task(brainstorming-specialist) → concepts → PRD
+**Vague:** "I want to build something" → Ask 2-3 questions → Task(brainstorming-specialist) → select concept → /pm:prd-new --from-concept
 **Simple:** "Fix typo in header" → /pm:issue-start → direct fix (skip PRD)
-**Medium:** "Build OAuth with MFA" → /pm:prd-new → standard implementation
-**Complex:** "Rebuild architecture" → /pm:prd-new-enhanced → parallel worktree execution
+**Medium:** "Build OAuth with MFA" → /pm:prd-new → /pm:prd-parse → standard workflow
+**Complex:** "Rebuild architecture" → /pm:prd-new-enhanced → /pm:prd-parse → worktree execution
 **Emergency:** "Production down!" → Quick context scan (15s) → analyzers for diagnosis → direct fix
 **Learning:** "Teach me React" → Create tutorial-guide → progressive lessons  
 **Existing:** "Fix my app" → project-analyzer → targeted improvements

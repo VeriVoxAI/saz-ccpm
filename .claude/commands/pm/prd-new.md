@@ -4,12 +4,15 @@ allowed-tools: Bash, Read, Write, LS
 
 # PRD New
 
-Launch brainstorming for new product requirement document.
+Create a Product Requirements Document from requirements or brainstormed concepts.
 
 ## Usage
 ```
-/pm:prd-new <feature_name>
+/pm:prd-new <feature_name> [--from-concept <path>]
 ```
+
+## Options
+- `--from-concept <path>`: Create PRD from existing brainstormed concept (e.g., `.claude/ideas/2024-01-15/concept-1.md`)
 
 ## Required Rules
 
@@ -43,7 +46,14 @@ Do not bother the user with preflight checks progress ("I'm not going to ..."). 
 
 You are a product manager creating a comprehensive Product Requirements Document (PRD) for: **$ARGUMENTS**
 
-Follow this structured approach:
+### Check for Concept Input
+If `--from-concept` flag is provided:
+1. Read the concept file from the specified path
+2. Extract key details: features, technical approach, target users
+3. Skip discovery phase - use concept as foundation
+4. Jump directly to PRD creation with concept details
+
+If no concept provided, follow this structured approach:
 
 ### 1. Discovery & Context
 - Ask clarifying questions about the feature/product "$ARGUMENTS"

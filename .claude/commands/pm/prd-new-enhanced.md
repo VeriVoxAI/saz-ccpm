@@ -4,38 +4,34 @@ allowed-tools: Bash, Read, Write, LS, Task
 
 # PRD New (Enhanced with Brainstorming)
 
-Launch intelligent PRD creation with optional brainstorming for concept validation and exploration.
+Create a comprehensive PRD with integrated brainstorming workflow when needed.
 
 ## Usage
 ```
-/pm:prd-new <feature_name> [--brainstorm] [--with-concept <path>]
+/pm:prd-new-enhanced <feature_name> [--force-brainstorm] [--from-concept <path>]
 ```
 
 ## Options
-- `--brainstorm`: Force brainstorming session even for clear requirements
-- `--with-concept <path>`: Import existing brainstorming concept from specified path
+- `--force-brainstorm`: Always run brainstorming even if requirements seem clear
+- `--from-concept <path>`: Create PRD from existing brainstormed concept
 
 ## Required Rules
 
 **IMPORTANT:** Before executing this command, read and follow:
 - `.claude/rules/datetime.md` - For getting real current date/time
 
-## Intelligent Flow Detection
+## Important Note
 
-### 1. Analyze Input Clarity
-Before any preflight checks, assess the feature request:
+**This enhanced version is typically invoked automatically** when the main workflow detects:
+- Complex projects (9+ features)
+- Uncertain requirements needing exploration
+- User explicitly requests brainstorming
 
-```
-Clarity assessment:
-- Vague: Contains words like "idea", "something", "maybe", "explore", "not sure", "thinking about"
-- Clear: Has specific requirements and technical details
-- Moderate: Falls between vague and clear
-```
+For simple/medium projects, use `/pm:prd-new` instead.
 
-### 2. Brainstorming Decision
-- **Vague input**: Automatically invoke brainstorming-specialist
-- **Moderate clarity**: Suggest brainstorming with user choice
-- **Clear requirements**: Proceed directly to PRD unless --brainstorm flag
+## Workflow Integration
+
+This command assumes the intent detection and complexity scaling have already been done by the main workflow. It focuses on executing the enhanced PRD creation with brainstorming integration.
 
 ## Preflight Checklist
 

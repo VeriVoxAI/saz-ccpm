@@ -214,9 +214,10 @@ If user ignores command hints, stay natural:
 ## Quick Reference
 
 ### Common Translations
-| Natural Language | CCPM Command |
-|-----------------|--------------|
-| "build X" | /pm:prd-new X |
+| Natural Language | CCPM Command/Action |
+|-----------------|---------------------|
+| "build something" | brainstorming-specialist → concepts → /pm:prd-new --from-concept |
+| "build [clear X]" | /pm:prd-new X |
 | "what's next" | /pm:next |
 | "show status" | /pm:status |
 | "create tasks" | /pm:epic-decompose |

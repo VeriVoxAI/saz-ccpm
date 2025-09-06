@@ -218,10 +218,17 @@ While SAZ-CCPM works primarily through natural language, these commands give you
 # Natural language (recommended)
 "I want to build [your idea]"
 
-# Or explicit commands
-/pm:prd-new feature      # Brainstorm and document
-/pm:prd-parse feature    # Convert to technical plan
-/pm:epic-oneshot feature # Create and sync everything
+# The system automatically:
+# - If vague: Runs brainstorming-specialist first
+# - If clear: Goes directly to PRD creation
+# - Then: /pm:prd-parse to create technical plan
+
+# Or explicit commands:
+/pm:prd-new feature           # Create PRD (clear requirements)
+/pm:prd-new feature --from-concept path  # Create PRD from brainstormed concept
+/pm:prd-new-enhanced feature  # Force comprehensive planning (complex projects)
+/pm:prd-parse feature         # Convert PRD to technical plan
+/pm:epic-oneshot feature      # Skip PRD for simple tasks
 ```
 
 ### During Development
