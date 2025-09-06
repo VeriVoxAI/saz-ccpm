@@ -153,6 +153,12 @@ For each concept file:
 - Success Probability: [X%]
 - Required Team: [X developers]
 
+## Recommended Workflow
+Based on scope: [Simple/Medium/Complex/Enterprise]
+- Simple (1-3 features) → Use `/pm:epic-oneshot`
+- Medium (4-8 features) → Use `/pm:prd-new`
+- Complex (9+ features) → Use `/pm:prd-new-enhanced`
+
 ## Pros
 ✅ [Key advantage]
 ✅ [Key advantage]

@@ -4,7 +4,12 @@ Adaptive command sequences and process overhead based on project complexity.
 
 ## 🎯 Complexity Detection
 
-### Automatic Assessment
+### Dual Detection Approach
+
+**For Existing Projects:** Use file count
+**For New Projects:** Use concept scope from brainstorming
+
+### File-Based Assessment (Existing Projects)
 ```bash
 # File count-based detection
 file_count=$(find . -type f \( -name "*.js" -o -name "*.py" -o -name "*.ts" -o -name "*.go" \) | wc -l)
@@ -20,14 +25,24 @@ else
 fi
 ```
 
-### Manual Indicators
+### Concept-Based Assessment (New Projects)
+When starting from brainstorming concepts, assess based on:
 
-| Complexity | Files | Timeline | Scope | Team Size |
-|------------|-------|----------|-------|-----------|
-| **Simple** | < 5 | 1-2 days | Single feature/fix | Solo |
-| **Medium** | 5-20 | 1-2 weeks | Multiple features | 2-5 |
-| **Complex** | 20-50 | 2-8 weeks | System changes | 5-10 |
-| **Enterprise** | 50+ | 8+ weeks | Multi-system | 10+ |
+| Complexity | Features | Timeline | Integrations | Examples |
+|------------|----------|----------|--------------|----------|
+| **Simple** | 1-3 | < 1 week | 0-1 | MVP, prototype, proof of concept |
+| **Medium** | 4-8 | 1-3 weeks | 2-3 | Full app, standard SaaS |
+| **Complex** | 9-15 | 3-8 weeks | 4+ | Multi-module system, marketplace |
+| **Enterprise** | 15+ | 8+ weeks | Ecosystem | Platform, multi-tenant, distributed |
+
+### Unified Indicators
+
+| Complexity | Files (Existing) | Features (New) | Timeline | Scope | Team Size |
+|------------|------------------|----------------|----------|-------|-----------|
+| **Simple** | < 5 | 1-3 | 1-2 days | Single feature/fix | Solo |
+| **Medium** | 5-20 | 4-8 | 1-2 weeks | Multiple features | 2-5 |
+| **Complex** | 20-50 | 9-15 | 2-8 weeks | System changes | 5-10 |
+| **Enterprise** | 50+ | 15+ | 8+ weeks | Multi-system | 10+ |
 
 ## 📋 Command Sequences by Complexity
 
@@ -198,10 +213,17 @@ Task(brainstorming-specialist)  # Generate concepts first
 
 ### Keywords to Complexity
 ```
+EXISTING PROJECTS:
 "quick fix", "typo", "small change" → Simple
 "new feature", "add capability" → Medium
 "refactor", "redesign", "architecture" → Complex
 "platform", "system", "infrastructure" → Enterprise
+
+NEW PROJECTS/CONCEPTS:
+"MVP", "prototype", "proof of concept" → Simple (1-3 features)
+"full app", "complete system", "standard SaaS" → Medium (4-8 features)
+"marketplace", "multi-module", "ecosystem" → Complex (9+ features)
+"platform", "multi-tenant", "distributed" → Enterprise (15+ features)
 
 UNCERTAIN:
 "build something", "not sure", "maybe" → Brainstorm first

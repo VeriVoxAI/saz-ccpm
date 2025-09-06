@@ -232,10 +232,10 @@ fi
 1. Check for existing project first
 2. If exists, run `/context:create`
 3. Ask 2-3 clarifying questions
-4. Generate 3-5 concepts
-5. Analyze feasibility
-6. Guide selection
-7. Convert to PRD
+4. Generate 3-5 concepts with scope analysis
+5. Analyze feasibility and complexity
+6. Guide selection based on concept scope
+7. Apply workflow matching concept complexity
 
 ### Command Sequence
 ```bash
@@ -243,11 +243,13 @@ fi
 /context:create                           # Understand current state
 
 # Brainstorming flow:
-/pm:prd-new-enhanced [name] --brainstorm  # Generate concepts
+/pm:prd-new-enhanced [name] --brainstorm  # Generate concepts with complexity
 # [User selects concept]
-/pm:prd-parse [name]                      # Convert to epic
-/pm:epic-show [name]                      # Review approach
-# → Transition to Build Mode
+# Assess concept complexity:
+#   1-3 features → Simple → /pm:epic-oneshot [name]
+#   4-8 features → Medium → /pm:prd-parse [name]
+#   9+ features → Complex → /pm:prd-parse [name] + worktree
+# → Transition to Build Mode with appropriate workflow
 ```
 
 ### Mandatory Agents

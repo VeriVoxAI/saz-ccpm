@@ -26,23 +26,45 @@ curl -sSL https://raw.githubusercontent.com/VeriVoxAI/saz-ccpm/main/install/ccpm
 iwr -useb https://raw.githubusercontent.com/VeriVoxAI/saz-ccpm/main/install/ccpm.bat | iex
 ```
 
-### 2. Initialize and Start Building
+### 2. Start Building
 
+First, initialize the project management system (one-time setup):
 ```bash
-# Initialize the system
 /pm:init
 
-# Set up your project context
-/init                # Create CLAUDE.md
-/context:create      # Analyze existing code
-
-# Then just talk naturally!
-"I want to build a SaaS dashboard"
-
-# SAZ-CCPM detects project complexity and adapts workflow automatically
+# This command:
+# - Installs GitHub CLI for issue tracking (if needed)
+# - Sets up GitHub authentication
+# - Creates .claude/ directory structure
+# - Installs gh-sub-issue extension for task hierarchies
+# - Prepares your project for professional development workflow
 ```
 
-That's it! SAZ-CCPM will guide you through the rest.
+#### For New Projects (Starting Fresh):
+```bash
+# After /pm:init, just talk naturally!
+"I want to build a SaaS dashboard with user auth, payments, and analytics"
+
+# SAZ-CCPM will:
+# - Use brainstorming-specialist to explore concepts
+# - Assess complexity based on features (4 features = Medium)
+# - Apply appropriate workflow (/pm:prd-new for this example)
+```
+
+#### For Existing Projects (Enhancing/Fixing):
+```bash
+# After /pm:init, analyze your existing code (optional but recommended)
+/context:create
+
+# Then just talk naturally!
+"Add authentication to my app"
+
+# SAZ-CCPM will:
+# - Detect existing project complexity (file count)
+# - Apply appropriate workflow based on scope
+```
+
+**Note:** After `/pm:init`, everything else is natural language - just describe what you want!
 
 ## 🎯 How It Works
 
@@ -77,9 +99,9 @@ SAZ-CCPM automatically adjusts process overhead based on project size:
 
 | Project Size | Detection | Workflow | GitHub | Example |
 |--------------|-----------|----------|---------|---------|
-| **Simple** | < 5 files, 1-2 days | `/pm:epic-oneshot` | Optional | "Fix typo" → Direct fix |
-| **Medium** | 5-20 files, 1-2 weeks | Standard PRD flow | Recommended | "Add payment" → Full workflow |
-| **Complex** | 20+ files, 2+ weeks | Enhanced + parallel | Required | "Rebuild system" → Worktrees |
+| **Simple** | < 5 files OR 1-3 features | `/pm:epic-oneshot` | Optional | "Fix typo" or "MVP" → Direct fix |
+| **Medium** | 5-20 files OR 4-8 features | Standard PRD flow | Recommended | "Add payment" or "Full app" → Full workflow |
+| **Complex** | 20+ files OR 9+ features | Enhanced + parallel | Required | "Rebuild system" or "Marketplace" → Worktrees |
 
 The system scales process to match needs - no unnecessary ceremony for simple tasks.
 
@@ -306,10 +328,10 @@ SAZ-CCPM uses specialized agents for context optimization:
 - Agents preserve main context by handling heavy work
 
 ### Progressive Complexity
-- **Simple tasks** (< 5 files): Direct execution, no ceremony
-- **Medium projects** (5-20 files): Standard workflow with PRDs
-- **Complex systems** (20+ files): Full architecture with parallel streams
-- **Enterprise** (multi-system): Coordinated agent ecosystems
+- **Simple tasks** (< 5 files OR 1-3 features): Direct execution, no ceremony
+- **Medium projects** (5-20 files OR 4-8 features): Standard workflow with PRDs
+- **Complex systems** (20+ files OR 9+ features): Full architecture with parallel streams
+- **Enterprise** (multi-system OR 15+ features): Coordinated agent ecosystems
 
 Commands automatically scale:
 - Simple: `/pm:epic-oneshot` (skip PRDs)

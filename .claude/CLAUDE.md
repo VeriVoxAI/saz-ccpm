@@ -125,7 +125,8 @@ For EVERY interaction, follow this exact order:
 1. **Detect Intent** → see rules/saz-intent-detection.md
 2. **Choose Mode** → see rules/workflow-modes.md  
 3. **Scale Complexity** → see rules/complexity-scaling.md
-   - Assess: Simple (<5 files) vs Medium (5-20) vs Complex (20+)
+   - For existing projects: Simple (<5 files) vs Medium (5-20) vs Complex (20+)
+   - For new projects: Simple (1-3 features) vs Medium (4-8) vs Complex (9+)
    - Apply: epic-oneshot vs standard flow vs worktree parallel
 4. **Translate Naturally** → see rules/saz-natural-language.md
 
