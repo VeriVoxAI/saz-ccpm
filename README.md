@@ -338,6 +338,8 @@ Context optimization through specialized agents:
 - `file-analyzer` for logs, configs, and large files
 - `code-analyzer` for debugging and code analysis
 - `brainstorming-specialist` for concept generation
+- `parallel-worker` for concurrent task execution
+- `test-runner` for test execution and validation
 - `general-purpose` for direct implementation
 - Agents preserve main context by handling heavy work
 
