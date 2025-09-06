@@ -9,8 +9,6 @@
 
 SAZ-CCPM combines conversational AI intelligence with battle-tested project management workflows. Start with a vague idea, end with production code. No complex commands, no learning curve - just natural conversation that scales from prototype to enterprise.
 
-![SAZ-CCPM Workflow](screenshot.webp)
-
 ## 🚀 Quick Start (< 2 minutes)
 
 ### 1. Install SAZ-CCPM
@@ -88,6 +86,8 @@ SAZ-CCPM automatically detects your intent and switches modes:
 |------|----------|--------------|
 | 🚨 **Emergency** | "urgent", "critical", "down", "broken" | Quick context scan, then fixes immediately |
 | 📚 **Educational** | "learn", "teach", "explain", "tutorial" | Step-by-step guidance with explanations |
+| 🔧 **Initialization** | Missing `.claude/epics/` | Auto-runs `/pm:init` to set up system |
+| 📂 **Analysis** | Existing project detected | Analyzes codebase and suggests improvements |
 | 💡 **Brainstorming** | "idea", "maybe", "explore", "not sure" | Generates concepts with feasibility analysis |
 | 🏗️ **Build** | Clear requirements | Full production workflow |
 | 🔄 **Improve** | "enhance", "optimize", "refactor" | Analyzes and upgrades existing code |
@@ -234,9 +234,9 @@ While SAZ-CCPM works primarily through natural language, these commands give you
 
 ### Advanced Operations
 ```bash
-/pm:issue-analyze 123    # Find parallel work streams
-/pm:epic-start-worktree  # Isolated parallel execution
-/pm:sync                 # Full GitHub synchronization
+/pm:issue-analyze 123         # Find parallel work streams
+/pm:epic-start-worktree epic  # Create isolated branch for complex parallel work
+/pm:sync                      # Full GitHub synchronization
 ```
 
 [Full command reference →](#complete-command-reference)
@@ -290,13 +290,13 @@ SAZ: 🚨 Emergency mode - Quick context scan...
      Implementing fix now...
 ```
 
-## 🏆 Proven Results
+## 🏆 Expected Benefits
 
-Teams using SAZ-CCPM report:
-- **89% less context switching** - AI maintains perfect memory
-- **5-10x faster delivery** - Through parallel agent execution
-- **75% fewer bugs** - Comprehensive task decomposition
-- **100% audit trail** - Every decision tracked in GitHub
+SAZ-CCPM is designed to deliver:
+- **Minimized context overhead** - Delegates to agents, keeping only relevant info
+- **Faster delivery** - Through parallel agent execution
+- **Improved code quality** - Comprehensive task decomposition
+- **Complete audit trail** - Every decision tracked in GitHub
 
 ## 🤝 Working with Teams
 
@@ -319,8 +319,15 @@ SAZ-CCPM scales from solo developers to enterprise teams:
 
 ## 🧠 Advanced Features
 
-### Intelligent Context Management
-SAZ-CCPM uses specialized agents for context optimization:
+### Intelligent Mode Detection & Context Management
+SAZ-CCPM detects your intent and applies the right workflow:
+- **Emergency keywords** → Skip process, fix immediately
+- **Educational phrases** → Tutorial mode with explanations
+- **Vague ideas** → Brainstorming mode for exploration
+- **Clear requirements** → Build mode with full workflow
+- **Existing code** → Analysis mode for understanding
+
+Context optimization through specialized agents:
 - `file-analyzer` for logs, configs, and large files
 - `code-analyzer` for debugging and code analysis
 - `brainstorming-specialist` for concept generation
@@ -338,12 +345,12 @@ Commands automatically scale:
 - Medium: `/pm:prd-new` → `/pm:epic-decompose`
 - Complex: `/pm:prd-new-enhanced` → `/pm:epic-start-worktree`
 
-### Continuous Learning
-The system learns from your project:
-- Adapts to your coding style
-- Remembers architectural decisions
-- Suggests proven patterns
-- Avoids past mistakes
+### Context Persistence
+The system maintains project context across sessions:
+- Preserves architectural decisions in `.claude/context/`
+- Tracks proven patterns in `.claude/epics/`
+- Documents technical choices in PRDs
+- Maintains GitHub issue history for audit trail
 
 ## 🔧 Configuration
 
@@ -395,7 +402,7 @@ Add instructions to `CLAUDE.md`:
 - `/pm:epic-sync [name]` - Push to GitHub
 - `/pm:epic-oneshot [name]` - Decompose + sync
 - `/pm:epic-start [name]` - Launch development
-- `/pm:epic-start-worktree [name]` - Isolated execution
+- `/pm:epic-start-worktree [name]` - Create separate branch for parallel agent work
 - `/pm:epic-list` - Show all epics
 - `/pm:epic-show [name]` - Display details
 - `/pm:epic-status [name]` - Progress tracking
